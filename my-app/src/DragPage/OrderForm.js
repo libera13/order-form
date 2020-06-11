@@ -13,13 +13,17 @@ import {
 const { Title, Text } = Typography;
 const layout = {
   labelCol: {
-    span: 10,
+    span: 8,
   },
   wrapperCol: {
     span: 16,
   },
   layout: "horizontal",
   size: "small",
+};
+
+const tailLayout = {
+  wrapperCol: { offset: 8, span: 16 },
 };
 
 const isValidPesel = (pesel) => {
@@ -44,7 +48,11 @@ const validateMessages = {
 
 const OrderForm = () => {
   const [formData, setFormData] = useState(null);
+  const [form] = Form.useForm();
 
+  const onReset = () => {
+    form.resetFields();
+  };
   const onFinish = (values) => {
     console.log(values);
     setFormData(values);
@@ -53,14 +61,14 @@ const OrderForm = () => {
   return (
     <Form
       {...layout}
-      name="nest-messages"
       onFinish={onFinish}
       validateMessages={validateMessages}
+      form={form}
     >
       <Title level={3}>Panel tworzenia zlecenia lekowego dla pacjenta</Title>
       <Text>Informacje o leku</Text>
       <Form.Item
-        label="Nazwa leku"
+        label="Nazwa"
         name={["medicine", "name"]}
         rules={[
           {
@@ -68,7 +76,15 @@ const OrderForm = () => {
           },
         ]}
       >
-        <Select>
+        <Select
+          showSearch
+          style={{ width: 200 }}
+          placeholder="Wybierz lek"
+          optionFilterProp="children"
+          filterOption={(input, option) =>
+            option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+          }
+        >
           <Select.Option value="Avifavir">Avifavir</Select.Option>
           <Select.Option value="Abakawir">Abakawir</Select.Option>
           <Select.Option value="Abasaglar">Abasaglar</Select.Option>
@@ -77,7 +93,7 @@ const OrderForm = () => {
         </Select>
       </Form.Item>
       <Form.Item
-        label="Pora podania leku"
+        label="Pora podania"
         name={["medicine", "hour-of-application"]}
         rules={[
           {
@@ -92,7 +108,7 @@ const OrderForm = () => {
         </Radio.Group>
       </Form.Item>
       <Form.Item
-        label="Data podania leku"
+        label="Data podania"
         name={["medicine", "date-of-application"]}
         rules={[
           {
@@ -100,10 +116,10 @@ const OrderForm = () => {
           },
         ]}
       >
-        <DatePicker placeholder="Wybierz datę"/>
+        <DatePicker placeholder="Wybierz datę" />
       </Form.Item>
       <Form.Item
-        label="Ilość leku"
+        label="Ilość"
         name={["medicine", "quantity"]}
         rules={[
           {
@@ -115,7 +131,7 @@ const OrderForm = () => {
       </Form.Item>
       <Form.Item
         name={["medicine", "hospital-section"]}
-        label="Oddział na jaki ma trafić lek"
+        label="Oddział"
         rules={[
           {
             required: true,
@@ -170,15 +186,17 @@ const OrderForm = () => {
       >
         <InputNumber />
       </Form.Item>
-      <Form.Item style={{ float: "right" }}>
+      <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
           Wyślij
         </Button>
+        <Button htmlType="button" onClick={onReset}>
+          Reset
+        </Button>
       </Form.Item>
-      {formData &&
-      (
+      {formData && (
         <Text>
-          Wysłano zlecenie dla pacjenta: {formData.pacient.name}{" "}
+          Ostatnie wysłane zlecenie było dla pacjenta: {formData.pacient.name}{" "}
           {formData.pacient.surname}
         </Text>
       )}
