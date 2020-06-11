@@ -1,0 +1,10 @@
+.box {
+  margin: auto;
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+.box-wrapper-grid {
+  display: grid;
+  height: 100vh;
+}
