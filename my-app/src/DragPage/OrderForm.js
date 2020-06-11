@@ -119,7 +119,7 @@ const OrderForm = () => {
         <DatePicker placeholder="Wybierz datę" />
       </Form.Item>
       <Form.Item
-        label="Ilość"
+        label="Ilość w tabletkach"
         name={["medicine", "quantity"]}
         rules={[
           {
@@ -198,8 +198,10 @@ const OrderForm = () => {
         <Text>
           Ostatnie wysłane zlecenie było dla pacjenta: {formData.pacient.name}{" "}
           {formData.pacient.surname}
+          <br />
         </Text>
       )}
+      <Text>po wysłaniu dane można zobaczyć w konsoli</Text>
     </Form>
   );
 };
