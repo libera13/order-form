@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/order-form/static/css/main.799e7390.chunk.css",
+    "main.js": "/order-form/static/js/main.ce6a21b4.chunk.js",
+    "main.js.map": "/order-form/static/js/main.ce6a21b4.chunk.js.map",
+    "runtime-main.js": "/order-form/static/js/runtime-main.3cf6d500.js",
+    "runtime-main.js.map": "/order-form/static/js/runtime-main.3cf6d500.js.map",
+    "static/css/2.a2026422.chunk.css": "/order-form/static/css/2.a2026422.chunk.css",
+    "static/js/2.0c3f4453.chunk.js": "/order-form/static/js/2.0c3f4453.chunk.js",
+    "static/js/2.0c3f4453.chunk.js.map": "/order-form/static/js/2.0c3f4453.chunk.js.map",
+    "index.html": "/order-form/index.html",
+    "precache-manifest.38c635611c48fd5bc518c5e33a24203d.js": "/order-form/precache-manifest.38c635611c48fd5bc518c5e33a24203d.js",
+    "service-worker.js": "/order-form/service-worker.js",
+    "static/css/2.a2026422.chunk.css.map": "/order-form/static/css/2.a2026422.chunk.css.map",
+    "static/css/main.799e7390.chunk.css.map": "/order-form/static/css/main.799e7390.chunk.css.map",
+    "static/js/2.0c3f4453.chunk.js.LICENSE.txt": "/order-form/static/js/2.0c3f4453.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3cf6d500.js",
+    "static/css/2.a2026422.chunk.css",
+    "static/js/2.0c3f4453.chunk.js",
+    "static/css/main.799e7390.chunk.css",
+    "static/js/main.ce6a21b4.chunk.js"
+  ]
+}
